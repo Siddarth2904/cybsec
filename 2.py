@@ -7,12 +7,6 @@ out_pcap = "output.pcap"
 
 def packet_callback(pkt):
     if TCP in pkt:
-        protocol = "TCP"
-        src_port = pkt[TCP].sport
-        dst_port = pkt[TCP].dport
-        packet_time = pkt.time
-        source_address = pkt[IP].src
-        destination_address = pkt[IP].dst
         data_payload = pkt[TCP].payload
 
         if isinstance(data_payload, Raw):
